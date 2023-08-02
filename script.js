@@ -5,6 +5,11 @@ var add_to_cart = document.querySelector("#add_to_cart");
 var checkout = document.querySelector("#checkout");
 var body = document.querySelector("body");
 var dom_total = document.querySelector("#dom_total");
+var reset_button = document.querySelector("#reset");
+
+var display_text = document.querySelector("#user_selected_text");
+var display_value = document.querySelector("#user_selected_value");
+var notification = document.querySelector("#notification");
 
 var total = 0;
 var total_items = 0;
@@ -37,10 +42,6 @@ foods.addEventListener("change", function () {
   user_selection.value = selected_item.value;
   user_selection.text = selected_item.text;
 
-  var display_text = document.querySelector("#user_selected_text");
-  var display_value = document.querySelector("#user_selected_value");
-  var notification = document.querySelector("#notification");
-
   if (Number(user_selection.value) > 0) {
     notification.innerHTML = "You have selected: ";
     display_text.innerHTML = user_selection.text;
@@ -69,3 +70,19 @@ add_to_cart.addEventListener("click", function () {
     alert("We apologize but you have exceded the maximum order.");
   }
 });
+
+reset_button.addEventListener("click", function () {
+  reseetAll();
+});
+
+function reseetAll() {
+  total = 0;
+  total_items = 0;
+  checkout.innerHTML = "";
+  notification.innerHTML = "";
+  display_text.innerHTML = null;
+  display_value.innerHTML = null;
+  add_to_cart.classList.add("hidden");
+  notification.innerHTML = "";
+  dom_total.innerHTML = "";
+}
