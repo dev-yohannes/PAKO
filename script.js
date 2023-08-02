@@ -2,6 +2,9 @@ var restaurant_name = document.querySelector("#title");
 var desc = document.querySelector(".discription");
 var body = document.querySelector("body");
 var foods = document.querySelector("#foods");
+var add_to_cart = document.querySelector("#add_to_cart");
+
+add_to_cart.classList.add("hidden");
 
 desc.innerHTML = "A <i>place</i> to eat";
 restaurant_name.innerHTML = "<h1>PAKO</h1>";
@@ -33,7 +36,16 @@ foods.addEventListener("change", function () {
   var display_value = document.querySelector("#user_selected_value");
   var notification = document.querySelector("#notification");
 
-  notification.innerHTML = "You have selected: ";
-  display_text.innerHTML = user_selection.text;
-  display_value.innerHTML = Number(user_selection.value).toFixed(2);
+  if (Number(user_selection.value) > 0) {
+    notification.innerHTML = "You have selected: ";
+    display_text.innerHTML = user_selection.text;
+    display_value.innerHTML = Number(user_selection.value).toFixed(2);
+    add_to_cart.classList.remove("hidden");
+    add_to_cart.classList.add("green");
+  } else {
+    notification.innerHTML = "";
+    display_text.innerHTML = null;
+    display_value.innerHTML = null;
+    add_to_cart.classList.add("hidden");
+  }
 });

@@ -5,3 +5,17 @@
   color: gold;
   width: 200px;
 }
+
+#checkout {
+  border: 1px solid black;
+  width: 200px;
+  min-height: 100px;
+}
+
+.hidden {
+  display: none;
+}
+
+.green {
+  background-color: green;
+}
