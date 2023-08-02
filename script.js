@@ -1,8 +1,13 @@
 var restaurant_name = document.querySelector("#title");
 var desc = document.querySelector(".discription");
-var body = document.querySelector("body");
 var foods = document.querySelector("#foods");
 var add_to_cart = document.querySelector("#add_to_cart");
+var checkout = document.querySelector("#checkout");
+var body = document.querySelector("body");
+var dom_total = document.querySelector("#dom_total");
+
+var total = 0;
+var total_items = 0;
 
 add_to_cart.classList.add("hidden");
 
@@ -47,5 +52,20 @@ foods.addEventListener("change", function () {
     display_text.innerHTML = null;
     display_value.innerHTML = null;
     add_to_cart.classList.add("hidden");
+  }
+});
+
+add_to_cart.addEventListener("click", function () {
+  if (total_items < 4) {
+    var checkoutitem = document.createElement("div");
+    checkoutitem.innerHTML =
+      user_selection.text + " " + Number(user_selection.value).toFixed(2);
+    checkout.appendChild(checkoutitem);
+    total_items++;
+    total += Number(user_selection.value);
+
+    dom_total.innerHTML = total.toFixed(2);
+  } else {
+    alert("We apologize but you have exceded the maximum order.");
   }
 });
