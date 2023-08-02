@@ -7,17 +7,17 @@ desc.innerHTML = "A <i>place</i> to eat";
 restaurant_name.innerHTML = "<h1>PAKO</h1>";
 
 var food_list = [
-  "Changu fish",
-  "Ugali",
-  "Egusi soup",
-  "Eba",
-  "Misr wot",
-  "Gomen",
+  { name: "Changu fish", price: 5.0 },
+  { name: "Ugali", price: 2.0 },
+  { name: "Egusi soup", price: 5.0 },
+  { name: "Eba", price: 2.0 },
+  { name: "Misr wot", price: 4.0 },
+  { name: "Gomen", price: 4.5 },
 ];
 
 for (var i = 0; i < food_list.length; i++) {
   var newoption = document.createElement("option");
-  newoption.value = food_list[i];
-  newoption.innerHTML = food_list[i];
+  newoption.value = food_list[i].price;
+  newoption.innerHTML = food_list[i].name;
   foods.appendChild(newoption);
 }
