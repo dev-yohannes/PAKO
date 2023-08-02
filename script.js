@@ -35,5 +35,5 @@ foods.addEventListener("change", function () {
 
   notification.innerHTML = "You have selected: ";
   display_text.innerHTML = user_selection.text;
-  display_value.innerHTML = user_selection.value;
+  display_value.innerHTML = Number(user_selection.value).toFixed(2);
 });
