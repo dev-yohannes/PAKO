@@ -21,3 +21,19 @@ for (var i = 0; i < food_list.length; i++) {
   newoption.innerHTML = food_list[i].name;
   foods.appendChild(newoption);
 }
+
+user_selection = { value: null, text: null };
+
+foods.addEventListener("change", function () {
+  var selected_item = document.querySelector("#foods option:checked");
+  user_selection.value = selected_item.value;
+  user_selection.text = selected_item.text;
+
+  var display_text = document.querySelector("#user_selected_text");
+  var display_value = document.querySelector("#user_selected_value");
+  var notification = document.querySelector("#notification");
+
+  notification.innerHTML = "You have selected: ";
+  display_text.innerHTML = user_selection.text;
+  display_value.innerHTML = user_selection.value;
+});
